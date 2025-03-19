@@ -1,0 +1,48 @@
+import turtle
+import random
+
+# Set up the screen
+screen = turtle.Screen()
+screen.bgcolor("white")
+
+# Create a turtle to draw the flower
+flower = turtle.Turtle()
+flower.speed(0)
+flower.hideturtle()
+
+# Function to draw a petal
+def draw_petal():
+    flower.color(random.choice(["red", "pink", "yellow", "purple", "blue"]))
+    flower.begin_fill()
+    flower.circle(20, 180)
+    flower.left(90)
+    flower.circle(20, 180)
+    flower.left(90)
+    flower.end_fill()
+
+# Function to draw the flower
+def draw_flower():
+    for _ in range(10):
+        draw_petal()
+        flower.left(36)
+
+# Function to draw the stem
+def draw_stem():
+    flower.color("green")
+    flower.width(3)
+    flower.penup()
+    flower.goto(0, -50)
+    flower.pendown()
+    flower.right(90)
+    flower.forward(100)
+
+# Draw the flower and stem
+flower.penup()
+flower.goto(0, 0)
+flower.pendown()
+draw_flower()
+draw_stem()
+
+# Hide the turtle and display the window
+flower.hideturtle()
+turtle.done()
